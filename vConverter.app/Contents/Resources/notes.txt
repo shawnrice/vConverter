@@ -1,0 +1,59 @@
+video_scrubber/tools/ffmpeg -i FILE0002.MOV -c copy -an tmp/tmpvid.mov
+video_scrubber/tools/ffmpeg -i FILE0002.MOV tmp/tmpaud.wav
+video_scrubber/tools/ffmpeg -i FILE0007.MOV -vn -ss 00:00:00 -t 00:00:01 tmp/noiseaud.wav
+video_scrubber/tools/sox tmp/noiseaud.wav -n noiseprof tmp/noise.prof
+video_scrubber/tools/sox tmp/tmpaud.wav tmp/tmpaud-clean.wav noisered tmp/noise.prof 0.21
+video_scrubber/tools/ffmpeg -i tmp/tmpaud-clean.wav -i tmp/tmpvid.mov -c copy tmp/vid.mov
+
+
+
+
+
+swf
+avi
+srt
+vob
+mpeg
+webm
+mkv
+wmv
+ogv
+mts
+m2p
+mp4
+ts
+dv4
+xvid
+amc
+amx
+scm
+hdmov
+mov
+asf
+m4v
+mpg
+avchd
+flv
+f4p
+fli
+hdv
+mvp
+divx
+smv
+mpeg4
+h264
+aaf
+AVCHD
+MOV
+AVI
+MPEG
+M4A
+MP4
+MKV
+MPG
+
+
+
+START=$(date +%s)
+END=$(date +%s)
+echo $((END - START)) seconds.
